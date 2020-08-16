@@ -8,7 +8,7 @@ let url = 'https://video.twilio.com/v1/Rooms?Status=in-progress&PageSize=20';
 let headers = new Headers();
 headers.set('Authorization', 'Basic ' + btoa(username + ":" + password));
 
-setInterval(getRooms, 1500);
+// setInterval(getRooms, 1500);
 
 
 async function getRooms() {
