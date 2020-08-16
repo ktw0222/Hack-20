@@ -39,7 +39,7 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                 </div>
-                <form class="user">
+                <form id="user-reg">
                   <div class="form-group row">
                     <div class="col-sm-4 mb-3 mb-sm-0">
                       <input
@@ -123,6 +123,7 @@
                   <a
                     href="login.html"
                     class="btn btn-primary btn-user btn-block"
+                    id="register"
                   >
                     Register Account
                   </a>
@@ -140,6 +141,25 @@
       </div>
     </div>
 
+    <!-- FireBase -->
+    <script src="api_request.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: 'AIzaSyCIgPcCzPLI5LJdkEoOOohcpHd08f1hDU0',
+        authDomain: 'hack20-286507.firebaseapp.com',
+        databaseURL: 'https://hack20-286507.firebaseio.com',
+        projectId: 'hack20-286507',
+        storageBucket: 'hack20-286507.appspot.com',
+        messagingSenderId: '43543634063',
+        appId: '1:43543634063:web:084edd5156dab9b92510fa',
+        measurementId: 'G-Q94P3TCT6D',
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      firebase.analytics();
+    </script>
+    <script src="login.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
