@@ -1,6 +1,6 @@
-# Hack-20
+# Hack-20 Buddy Finder
+We started from brainstorming the possible ideas for the event. All of us was interested in solving the problems in the Campus Track since all of were pretty heavily affected during spring 2020. Since we know that a lot of freshmen will be coming in this Autumn, we think it will be really nice to provide them a smoother transition to college. In order to achieve this, we decided to make an app to allow them to meet friends more easily. We all agreed that meeting friends is one of the most important things in college. If we can provide a platform for incoming students to be friends with each other before actually meeting each other in-person, we can give them a smoother transition to college. Thus, we decided to make this app, which is designed to be a social platform for incoming freshmen.
 
-This is Kevin.
-Megan is not here.
-This is Megan.
-Testing...
+We decided to use Twillio as our streaming platform since we think it provides the functions needed for us to effectively break people into different rooms and at the same time giving them freedom to create more rooms. We used Google Firebase as our database to store user information so that when they enter a room, other people can see information about them such as classes they are taking, hometown and etc. By having these info and a well-designed streaming service, we believe that students will have a much better transition in terms of the social aspect to college.
+
+We didn't have time to remove the hard-coded auth key in our application yet, but that will be our next task to focus on! If you are interested, feel free to contact us (kevstar1@uw.edu) and we will send you the invitation to access our private GitHub project!
