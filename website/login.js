@@ -8,27 +8,36 @@ var firebaseConfig = {
   appId: '1:43543634063:web:084edd5156dab9b92510fa',
   measurementId: 'G-Q94P3TCT6D',
 };
-// // Initialize Firebase
-// firebase.initializeApp(firebaseConfig);
-// // firebase.analytics();
-
 firebase.initializeApp(firebaseConfig);
 console.log('hi');
 var db = firebase.firestore();
-document.getElementById('user').addEventListener('submit', loginSetUp(), false);
+
+
+document.getElementById('user').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var user_email = getInputVal('email').trim();
+  var password = getInputVal('password').trim();
+  console.log('about to login');
+  // logIn(user_email, password);
+  logIn(user_email, password);
+});
+
 function getInputVal(id) {
   var a = document.getElementById(id).value;
   console.log(a);
   return a;
 }
 
-function loginSetUp() {
-  var user_email = getInputVal('email').trim();
-  var password = getInputVal('password').trim();
-  if (emaill != '') {
-    logIn(user_email, password);
-  }
-}
+// function loginSetUp() {
+  
+
+//   var user_email = getInputVal('email').trim();
+//   var password = getInputVal('password').trim();
+
+  
+//   console.log('about to login');
+//   logIn(user_email, password);
+// }
 
 function logIn(user_email, password) {
   firebase
@@ -48,6 +57,9 @@ function logIn(user_email, password) {
       // [END_EXCLUDE]
     });
 
+
+    console.log('half way');
+
   // fetch user data from firestore
   var userDoc = db.collection('AllUsers').doc(user_email);
   userDoc
@@ -60,6 +72,9 @@ function logIn(user_email, password) {
         class_standing = doc.get('class_standing');
         class_taking = doc.get('class_taking');
         country_from = doc.get('country_from');
+
+        // alert('hi');
+        window.location.href = "index.html";
       } else {
         console.log('No such document!');
       }
