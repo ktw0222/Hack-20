@@ -28,6 +28,7 @@
     <link href="css/sb-admin-2.min.css" rel="stylesheet" />
   </head>
   <body class="bg-transparent">
+    <a class="btn btn-primary log-out  text-lg" href="login.html" role="button">Log Out</a>
     <div id="arrow-div">
       <div class="d-felx felx-column justify-content-center">
         <a id="back-button" href="rooms.html">
@@ -40,18 +41,25 @@
     </div>
     <div class="container mt-5 pt-5">
       <!-- Page Heading -->
-      <h1 class="h3 mb-2 text-gray-800">Participants</h1>
-      <p class="mb-4">
-        Welcome to the + room_name. Please use use the following link to access
-        the meeting. Enter the room name (case-sensitive) and please enter ur
-        name + email in the Name field. (e.g. Husky Doge huskyiscute@uw.edu)
-        <a
-          target="_blank"
-          href="https://video-app-2094-dev.twil.io?passcode=7400112094"
-          >Click Here</a
-        >.
-      </p>
-
+      <h1 class="h1 mb-2 text-gray-800">Welcome to the + room_name.</h1>
+      <div class="d-flex justify-content-between">
+        <div>
+            <p class="mb-4 text-danger participant-message">
+                Enter the room name (case-sensitive) and your name + email in the Name
+                field.
+                <br>
+                (e.g. Husky Doge huskyiscute@uw.edu)
+              </p>
+        </div>
+        <div class="text-right mt-2">
+          <a
+            class="btn btn-success text-lg"
+            href="https://video-app-2094-dev.twil.io?passcode=7400112094"
+            role="button" target="_blank"
+            >Join Meeting</a
+          >
+        </div>
+      </div>
       <!-- DataTales Example -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -96,7 +104,6 @@
           </div>
         </div>
       </div>
-    </div>
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
