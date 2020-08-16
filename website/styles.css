@@ -1,0 +1,25 @@
+#arrow-div {
+  background-color: transparent;
+  position: fixed;
+  width: 30px;
+  top: 38%;
+  left: 75px;
+}
+
+#arrow {
+  font-size: 100px;
+}
+
+.back-word-div {
+  position: absolute;
+  top: 68%;
+  font-size: 25px;
+}
+
+#back-button {
+  color: inherit;
+}
+
+#add {
+  font-size: 75px;
+}
