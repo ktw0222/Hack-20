@@ -1,5 +1,5 @@
 var firebaseConfig = {
-  apiKey: 'AIzaSyCIgPcCzPLI5LJdkEoOOohcpHd08f1hDU0',
+  apiKey: '*****',
   authDomain: 'hack20-286507.firebaseapp.com',
   databaseURL: 'https://hack20-286507.firebaseio.com',
   projectId: 'hack20-286507',

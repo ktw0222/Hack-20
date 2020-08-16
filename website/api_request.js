@@ -1,7 +1,7 @@
 var dict = new Object();
 
-const username = 'AC74ef2d1e4d27646ccbe4f55653abd18f';
-const password = '118138ce318de7de1e387e402c5f1822';
+const username = '*****';
+const password = '*****';
 const param = username + ':' + password;
 let url = 'https://video.twilio.com/v1/Rooms?Status=in-progress&PageSize=20';
 let headers = new Headers();

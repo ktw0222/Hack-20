@@ -1,5 +1,5 @@
 var firebaseConfig = {
-  apiKey: 'AIzaSyCIgPcCzPLI5LJdkEoOOohcpHd08f1hDU0',
+  apiKey: '*****',
   authDomain: 'hack20-286507.firebaseapp.com',
   databaseURL: 'https://hack20-286507.firebaseio.com',
   projectId: 'hack20-286507',
@@ -12,8 +12,7 @@ firebase.initializeApp(firebaseConfig);
 console.log('hi');
 var db = firebase.firestore();
 
-
-document.getElementById('user').addEventListener('submit', function(e) {
+document.getElementById('user').addEventListener('submit', function (e) {
   e.preventDefault();
   var user_email = getInputVal('email').trim();
   var password = getInputVal('password').trim();
@@ -29,12 +28,10 @@ function getInputVal(id) {
 }
 
 // function loginSetUp() {
-  
 
 //   var user_email = getInputVal('email').trim();
 //   var password = getInputVal('password').trim();
 
-  
 //   console.log('about to login');
 //   logIn(user_email, password);
 // }
@@ -57,8 +54,7 @@ function logIn(user_email, password) {
       // [END_EXCLUDE]
     });
 
-
-    console.log('half way');
+  console.log('half way');
 
   // fetch user data from firestore
   var userDoc = db.collection('AllUsers').doc(user_email);
@@ -74,7 +70,7 @@ function logIn(user_email, password) {
         country_from = doc.get('country_from');
 
         // alert('hi');
-        window.location.href = "index.html";
+        window.location.href = 'index.html';
       } else {
         console.log('No such document!');
       }
