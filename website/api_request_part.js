@@ -11,7 +11,6 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
-
 const username = 'AC74ef2d1e4d27646ccbe4f55653abd18f';
 const password = '118138ce318de7de1e387e402c5f1822';
 const param = username + ':' + password;
@@ -36,7 +35,6 @@ async function getRooms() {
   for (i = 0; i < data.rooms.length; i++) {
     var currRoom = data.rooms[i];
 
-
     if (currRoom.unique_name === id) {
       var part_response = await fetch(currRoom.links.participants, {
         method: 'GET',
@@ -48,7 +46,9 @@ async function getRooms() {
       for (j = 0; j < part_arr.length; j++) {
         if (part_arr[j].status === 'connected') {
           var stringArray = part_arr[j].identity.split(' ');
-          participants_arr.push(new Participant(stringArray[0], stringArray[1]));
+          participants_arr.push(
+            new Participant(stringArray[0], stringArray[1])
+          );
         }
       }
       break;
@@ -59,7 +59,6 @@ async function getRooms() {
 }
 
 function displayPartData() {
-
   for (i = 0; i < participants_arr.length; i++) {
     var first_name = '';
     var last_name = '';
@@ -70,32 +69,46 @@ function displayPartData() {
 
     var userDoc = db.collection('AllUsers').doc(participants_arr[i].email);
     userDoc
-    .get()
-    .then(function (doc) {
-      if (doc !== null && doc.exists) {
-        first_name = doc.get('first_name');
-        last_name = doc.get('last_name');
-        field_of_study = doc.get('field_of_study');
-        class_standing = doc.get('class_standing');
-        class_taking = doc.get('class_taking');
-        country_from = doc.get('country_from');
+      .get()
+      .then(function (doc) {
+        if (doc !== null && doc.exists) {
+          first_name = doc.get('first_name');
+          last_name = doc.get('last_name');
+          field_of_study = doc.get('field_of_study');
+          class_standing = doc.get('class_standing');
+          class_taking = doc.get('class_taking');
+          country_from = doc.get('country_from');
 
-        console.log(first_name);
-        console.log(last_name);
-        console.log(field_of_study);
-        console.log(class_standing);
-        console.log(class_taking);
-        console.log(country_from);
-
-      } else {
-        console.log('No such document!');
-      }
-    })
-    .catch(function (error) {
-      console.log('Error getting document:', error);
-    });
+          console.log(first_name);
+          console.log(last_name);
+          console.log(field_of_study);
+          console.log(class_standing);
+          console.log(class_taking);
+          console.log(country_from);
+          var HTML =
+            '<tr><td>' +
+            first_name +
+            ' ' +
+            last_name +
+            '</td><td>' +
+            class_standing +
+            '</td><td>' +
+            field_of_study +
+            '</td><td>' +
+            class_taking.toString() +
+            '</td><td>' +
+            country_from +
+            '</td></tr>';
+          var box = document.getElementById('box');
+          box.innerHTML = HTML + box.innerHTML;
+        } else {
+          console.log('No such document!');
+        }
+      })
+      .catch(function (error) {
+        console.log('Error getting document:', error);
+      });
   }
-
 
   // var userDoc = db.collection('AllUsers').doc(user_email);
   // userDoc
@@ -119,19 +132,11 @@ function displayPartData() {
   //     console.log('Error getting document:', error);
   //   });
 
+  // var HTML =
+  //   '<tr><td>Kevin Wang</td><td>Junior</td><td>Computer Science</td><td>CSE333, CSE473, ECON300, AMATH383, MATH407</td><td>Taipei, Taiwan</td></tr>';
+  // var box = document.getElementById('box');
+  // box.innerHTML = HTML + box.innerHTML;
 
-  var HTML =
-    '<tr><td>Kevin Wang</td><td>Junior</td><td>Computer Science</td><td>CSE333, CSE473, ECON300, AMATH383, MATH407</td><td>Taipei, Taiwan</td></tr>';
-  var box = document.getElementById('box');
-  box.innerHTML = HTML + box.innerHTML;
-
-
-
-
-
-
-
-  
   // for (i = 0; i < allRooms.length; i++) {
   //   if (allRooms.length != 0) {
   //     console.log(
@@ -174,6 +179,4 @@ class Participant {
     // this.class_taking = '';
     // this.country_from = '';
   }
-
-
 }
