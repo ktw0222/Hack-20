@@ -15,43 +15,43 @@ var db = firebase.firestore();
 
 console.log('hi');
 
-document
-  .getElementById('user-reg')
-  .addEventListener('submit', function(e) {
-    e.preventDefault();
+document.getElementById('user-reg').addEventListener('submit', function (e) {
+  e.preventDefault();
 
-    var user_email = getInputVal('Email');
-    var password = getInputVal('Password');
-    var first_name = getInputVal('FirstName');
-    var last_name = getInputVal('LastName');
-    var field_of_study = getInputVal('Major');
-    var class_standing = getInputVal('Standing');
-    var class_taking = getInputVal('Classes');
-    var country_from = getInputVal('Home');
+  var user_email = getInputVal('Email');
+  var password = getInputVal('Password');
+  var first_name = getInputVal('FirstName');
+  var last_name = getInputVal('LastName');
+  var field_of_study = getInputVal('Major');
+  var class_standing = getInputVal('Standing');
+  var class_taking = getInputVal('Classes');
+  var country_from = getInputVal('Home');
 
-    //   var user_email = 'abcde@gmail.com';
-    //   var password = '12345678';
-    //   var first_name = '123';
-    //   var last_name = '123';
-    //   var field_of_study = '123';
-    //   var class_standing = '123';
-    //   var class_taking = 'CSE333, CSE473, ECON300';
-    //   var country_from = '123';
+  //   var user_email = 'abcde@gmail.com';
+  //   var password = '12345678';
+  //   var first_name = '123';
+  //   var last_name = '123';
+  //   var field_of_study = '123';
+  //   var class_standing = '123';
+  //   var class_taking = 'CSE333, CSE473, ECON300';
+  //   var country_from = '123';
 
-    // First Name, Last Name, Class, Major, Classes, Home, Email, Password
-    var class_array = class_taking.split(',');
-
-    signUp(
-      user_email,
-      password,
-      first_name,
-      last_name,
-      class_standing,
-      field_of_study,
-      class_array,
-      country_from
-    );
-  });
+  // First Name, Last Name, Class, Major, Classes, Home, Email, Password
+  var class_array = class_taking.split(',');
+  for (i = 0; i < class_array.length; i++) {
+    class_array[i] = class_array[i].trim();
+  }
+  signUp(
+    user_email,
+    password,
+    first_name,
+    last_name,
+    class_standing,
+    field_of_study,
+    class_array,
+    country_from
+  );
+});
 
 function getInputVal(id) {
   var a = document.getElementById(id).value;
@@ -129,7 +129,7 @@ function signUp(user_email, password, fm, lm, cs, fos, ct, cf) {
     })
     .then(function () {
       console.log('Status saved!');
-      window.location.href = "index.html";
+      window.location.href = 'index.html';
     })
     .catch(function (error) {
       console.log(error);
